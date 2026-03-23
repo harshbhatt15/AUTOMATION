@@ -110,4 +110,4 @@ while True:
     except Exception as e:
         print("Error:", e)
 
-    time.sleep(10)  # check every 10 seconds
+    time.sleep(10) 
