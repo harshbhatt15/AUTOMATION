@@ -3,8 +3,9 @@ from oauth2client.service_account import ServiceAccountCredentials  # used for a
 import requests # caalling APIs , Fetching data from websities
 import time  # for time related operations 
 from datetime import datetime #used for time and date handling
+from dotenv import load_dotenv
 import os
-
+load_dotenv()
 
 
 # ================= GOOGLE SHEET SETUP =================
@@ -86,14 +87,28 @@ print("🚀 Automation started...")
 response = requests.get(url, cookies=cookies)
 data = response.json()
 
-last_submission_id = data['submissions_dump'][0]['id']
+if 'submissions_dump' in data and len(data['submissions_dump']) > 0:
+    last_submission_id = data['submissions_dump'][0]['id']
+else:
+    print("❌ Could not fetch submissions. Check cookie.")
+    last_submission_id = None
+
 
 while True:
     try:
         response = requests.get(url, cookies=cookies)
         data = response.json()
 
+        # 👇 ADD HERE
+        if 'submissions_dump' not in data or len(data['submissions_dump']) == 0:
+            print("⚠️ No submission data (cookie issue)")
+            time.sleep(10)
+            continue
+
         latest = data['submissions_dump'][0]
+
+        submission_id = latest['id']
+        status = latest['status_display']
 
         submission_id = latest['id']
         status = latest['status_display']
