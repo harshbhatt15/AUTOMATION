@@ -99,7 +99,7 @@ while True:
         response = requests.get(url, cookies=cookies)
         data = response.json()
 
-        # 👇 ADD HERE
+        
         if 'submissions_dump' not in data or len(data['submissions_dump']) == 0:
             print("⚠️ No submission data (cookie issue)")
             time.sleep(10)
