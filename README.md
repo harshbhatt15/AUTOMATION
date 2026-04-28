@@ -33,3 +33,5 @@ This project automatically tracks my LeetCode submissions and updates a Google S
 
 ---
 
+## Author
+## Harsh bhatt ##
