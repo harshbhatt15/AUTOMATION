@@ -17,7 +17,7 @@ This project automatically tracks my LeetCode submissions and updates a Google S
 ## 🛠️ Tech Stack
 
 - Python
-- Google Sheets API (`gspread`)
+- Google Sheets API
 - LeetCode unofficial API
 - Requests
 
