@@ -31,8 +31,8 @@ This project automatically tracks my LeetCode submissions and updates a Google S
    - Finds today's date row in Google Sheet  
    - Updates the count in the correct column  
 
+
 ---
 
 ## Author
 -- Harsh bhatt
--- BCA
